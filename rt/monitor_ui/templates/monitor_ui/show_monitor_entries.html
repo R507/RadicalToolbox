@@ -1,0 +1,20 @@
+{% extends "monitor_ui/layout.html" %}
+{% block body %}
+  <table style="width:100%" class=entries>
+    <tr>
+      <th>Timestamp</th>
+      <th>Value</th>
+    </tr>
+  {% for entry in entries %}
+    <tr>
+      <th>{{ entry.datetime }}</th>
+      <th>{{ entry.value }}</th>
+    </tr>
+  {% else %}
+    <tr>
+      <th>--</th>
+      <th>--</th>
+    </tr>
+  {% endfor %}
+  </table>
+{% endblock %}

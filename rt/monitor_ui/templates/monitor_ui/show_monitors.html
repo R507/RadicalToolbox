@@ -1,0 +1,48 @@
+{% extends "monitor_ui/layout.html" %}
+{% block body %}
+    <form action="{{ url_for('.add_monitor') }}" method=post class=add-entry>
+      <dl>
+        <dt>Name:
+        <dd><input type=text size=50 name=name>
+        <dt>URL:
+        <dd><input type=text size=50 name=url>
+        <dt>Mechanism:
+        <dd><input type=text size=50 name=mechanism>
+        <dt>Interval:
+        <dd><input type=text size=50 name=interval>
+        <dt>Enable:
+        <dd><input type=text size=50 name=enabled>
+        <dd><input type=submit value=Save>
+      </dl>
+    </form>
+  <table style="width:100%" class=monitors>
+    <tr>
+      <th>Name</th>
+      <th>URL</th>
+      <th>Mechanism</th>
+      <th>Interval</th>
+      <th>Enabled</th>
+    </tr>
+  {% for entry in monitors %}
+    <tr>
+      <th>
+        <a href="{{ url_for('.show_monitor_entries', name=entry.display_name)}}">
+          {{ entry.display_name }}
+        </a>
+      </th>
+      <th>{{ entry.url }}</th>
+      <th>{{ entry.mechanism_name }}</th>
+      <th>{{ entry.interval }}</th>
+      <th>{{ entry.enabled }}</th>
+    </tr>
+  {% else %}
+    <tr>
+      <th>--</th>
+      <th>--</th>
+      <th>--</th>
+      <th>--</th>
+      <th>--</th>
+    </tr>
+  {% endfor %}
+  </table>
+{% endblock %}

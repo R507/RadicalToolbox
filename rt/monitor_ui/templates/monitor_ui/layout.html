@@ -1,0 +1,14 @@
+{% extends "platform_ui/layout.html" %}
+{% block module_body %}
+  <div class=page>
+    <h1>[RT] Data Monitor</h1>
+    <div class=metanav>
+      <a href="{{ url_for('.starting_page') }}">main</a>
+      <a href="{{ url_for('.show_monitors') }}">monitors</a>
+    </div>
+    {% for message in get_flashed_messages() %}
+      <div class=flash>{{ message }}</div>
+    {% endfor %}
+    {% block body %}{% endblock %}
+  </div>
+{% endblock %}

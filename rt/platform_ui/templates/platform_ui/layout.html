@@ -1,0 +1,14 @@
+<!doctype html>
+<title>Radical Toolbox</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<link rel=stylesheet type=text/css href="{{ url_for('platform_ui.static', filename='style.css') }}">
+
+<div class=page>
+  <header>
+    <rtlogo>[RT]</rtlogo>
+    {{nav.top.render(renderer='simple')}}
+  </header>
+  <main>
+    {% block module_body %}{% endblock %}
+  </main>
+</div>
